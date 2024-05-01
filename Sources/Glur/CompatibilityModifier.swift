@@ -26,7 +26,7 @@ internal struct CompatibilityModifier: ViewModifier {
     }
     
     var gradientMask: some View {
-        var (startPoint, endPoint) = direction.unitPoints
+        let (startPoint, endPoint) = direction.unitPoints
         
         return LinearGradient(stops: [
             .init(color: .clear, location: 0),
