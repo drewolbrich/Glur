@@ -28,6 +28,10 @@ float mapRadius(float2 position,
         mapped = max((position.x/size.x*displayScale-offset)/interpolation, 0.0);
     } else if (direction == 3) {
         mapped = max(0.5-(position.x/size.x*displayScale-offset)/interpolation, 0.0);
+    } else {
+        // This suppresses the compiler warning "Variable 'mapped' is used uninitialized
+        // whenever 'if' condition is false".
+        mapped = 0;
     }
     
     return min(mapped*radius, radius);
